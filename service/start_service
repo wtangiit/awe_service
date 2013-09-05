@@ -1,0 +1,11 @@
+#!/bin/bash
+
+source /kb/deployment/user-env.sh
+
+SERVICE=awe_service
+SERVICE_DIR=$KB_TOP/services/$SERVICE
+
+AWE_CONFIG=$KB_TOP/services/awe_service/conf/awe.cfg
+
+echo "/kb/runtime/sbin/daemonize -v -p $SERVICE_DIR/service.pid $KB_TOP/bin/awe-server -conf $AWE_CONFIG"
+/kb/runtime/sbin/daemonize -v -p $SERVICE_DIR/service.pid $KB_TOP/bin/awe-server -conf $AWE_CONFIG 
