@@ -25,7 +25,7 @@ mkdir data<br />
 cd data/<br />
 ln -s /mnt/db .<br />
 
-- Start mongod (preferably in screen session):<br />
+- Start mongod (preferably in a screen session):<br />
 cd /kb/dev_container<br />
 ./bootstrap /kb/runtime<br />
 source user-env.sh<br />
@@ -37,6 +37,8 @@ cd /kb/dev_container<br />
 ./bootstrap /kb/runtime<br />
 source user-env.sh<br />
 make deploy<br />
+
+- Start AWE:<br />
 /kb/deployment/services/awe_service/start_service
 
 - After deployment has completed, if you've associated an IP with your instance you should be able to confirm that AWE is running by going to either url below (ports are defined in Makefile prior to deployment):<br />
