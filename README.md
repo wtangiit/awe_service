@@ -6,7 +6,7 @@ The following are instructions on how to deploy the AWE service in KBase from la
 
 - Create a security group for your AWE server (this isn't required with the test ports in the Makefile but makes it convenient if you want to change those ports later)<br />
 - Using this security group and your key, launch a KBase instance
-- Get the awe_service code:<br />
+- Get the code:<br />
 sudo -s<br />
 cd /kb<br />
 git clone kbase@git.kbase.us:dev_container.git<br />
