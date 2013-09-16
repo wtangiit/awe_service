@@ -36,7 +36,7 @@ mongod<br />
 cd /kb/dev_container<br />
 ./bootstrap /kb/runtime<br />
 source user-env.sh<br />
-make
+make<br />
 make deploy<br />
 
 - Start AWE:<br />
