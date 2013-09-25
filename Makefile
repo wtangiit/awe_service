@@ -6,18 +6,35 @@ SERVICE_DIR = $(TARGET)/services/$(SERVICE)
 
 GO_TMP_DIR = /tmp/go_build.tmp
 
-AWE_DIR = /mnt/awe
+PRODUCTION = 1
 
-TPAGE_ARGS = --define kb_top=$(TARGET) \
---define site_port=7079 \
---define api_port=7080 \
---define api_ip=140.221.84.186 \
---define site_dir=$(AWE_DIR)/site \
---define data_dir=$(AWE_DIR)/data \
---define logs_dir=$(AWE_DIR)/logs \
---define awfs_dir=$(AWE_DIR)/awfs \
---define mongo_host=localhost \
---define mongo_db=ShockDBtest
+ifeq ($(PRODUCTION), 1)
+	AWE_DIR = /disk0/awe
+	TPAGE_ARGS = --define kb_top=$(TARGET) \
+	--define site_url=https://kbase.us/services/awe \
+	--define api_url=https://kbase.us/services/awe-api \
+	--define site_port=7106 \
+	--define api_port=7107 \
+	--define site_dir=$(AWE_DIR)/site \
+	--define data_dir=$(AWE_DIR)/data \
+	--define logs_dir=$(AWE_DIR)/logs \
+	--define awfs_dir=$(AWE_DIR)/awfs \
+	--define mongo_host=localhost \
+	--define mongo_db=ShockDBtest
+else
+	AWE_DIR = /mnt/awe
+	TPAGE_ARGS = --define kb_top=$(TARGET) \
+	--define site_url= \
+	--define api_url= \
+	--define site_port=7079 \
+	--define api_port=7080 \
+	--define site_dir=$(AWE_DIR)/site \
+	--define data_dir=$(AWE_DIR)/data \
+	--define logs_dir=$(AWE_DIR)/logs \
+	--define awfs_dir=$(AWE_DIR)/awfs \
+	--define mongo_host=localhost \
+	--define mongo_db=ShockDBtest
+endif
 
 include $(TOP_DIR)/tools/Makefile.common
 
