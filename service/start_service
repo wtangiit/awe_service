@@ -2,5 +2,5 @@
 
 source /kb/deployment/user-env.sh
 
-echo "/sbin/service awe start"
-/sbin/service awe start
+echo "/usr/sbin/service awe start"
+/usr/sbin/service awe start
