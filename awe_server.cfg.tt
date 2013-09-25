@@ -12,8 +12,8 @@ site-port=[% site_port %]
 api-port=[% api_port %]
 
 [External]
-site-url=
-api-url=
+site-url=[% site_url %]
+api-url=[% api_url %]
 
 [Admin]
 email=admin@host.com
