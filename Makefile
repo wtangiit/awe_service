@@ -8,7 +8,7 @@ GO_TMP_DIR = /tmp/go_build.tmp
 
 AWE_DIR = /mnt/awe
 
-TPAGE_TEST_ARGS = --define kb_top=$(TARGET) \
+TPAGE_ARGS = --define kb_top=$(TARGET) \
 --define site_port=7079 \
 --define api_port=7080 \
 --define api_ip=140.221.84.186 \
@@ -44,8 +44,8 @@ $(BIN_DIR)/awe-server: AWE/awe-server/awe-server.go
 
 deploy-service: all
 	cp $(BIN_DIR)/awe-server $(TARGET)/bin
-	$(TPAGE) $(TPAGE_TEST_ARGS) awe_server.cfg.tt > awe.cfg
-	$(TPAGE) $(TPAGE_TEST_ARGS) AWE/site/js/config.js.tt > AWE/site/js/config.js
+	$(TPAGE) $(TPAGE_ARGS) awe_server.cfg.tt > awe.cfg
+	$(TPAGE) $(TPAGE_ARGS) AWE/site/js/config.js.tt > AWE/site/js/config.js
 	mkdir -p $(AWE_DIR)/site $(AWE_DIR)/data $(AWE_DIR)/logs $(AWE_DIR)/awfs
 	rm -r $(AWE_DIR)/site
 	cp -v -r AWE/site $(AWE_DIR)/site
@@ -62,3 +62,4 @@ initialize: AWE/site
 AWE/site:
 	git submodule init
 	git submodule update
+	$(TPAGE) $(TPAGE_ARGS) init/awe.conf.tt > /etc/init/awe.conf
