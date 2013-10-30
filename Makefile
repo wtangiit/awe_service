@@ -42,7 +42,7 @@ include $(TOP_DIR)/tools/Makefile.common
 
 all: initialize build-awe
 
-deploy: deploy-client deploy-service
+deploy: deploy-client deploy-service deploy-utils
 
 deploy-client: all
 	cp $(BIN_DIR)/awe-client $(TARGET)/bin/awe-client
@@ -78,3 +78,9 @@ AWE/site:
 	git submodule init
 	git submodule update
 	$(TPAGE) $(TPAGE_ARGS) init/awe.conf.tt > /etc/init/awe.conf
+
+
+include $(TOP_DIR)/tools/Makefile.common.rules
+
+deploy-utils: SRC_PERL = $(wildcard AWE/utils/*.pl)
+deploy-utils: deploy-scripts
