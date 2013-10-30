@@ -42,10 +42,8 @@ include $(TOP_DIR)/tools/Makefile.common
 
 all: initialize build-awe
 
-deploy: deploy-libs deploy-client deploy-service
+deploy: deploy-client deploy-service
 
-deploy-libs:
-	
 deploy-client: all
 	cp $(BIN_DIR)/awe-client $(TARGET)/bin/awe-client
 
