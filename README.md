@@ -50,5 +50,5 @@ api  ->  http://[AWE Server IP]:7080/<br />
 - Start AWE Client:<br />
 /kb/deployment/services/awe_service/start_aweclient <br />
 /kb/deployment/services/awe_service/start_aweclient <br />
-(note: before start awe-client, make sure awec.cfg has been configured with proper attributes such as the awe-server url and supported apps.)<br />
+(note: before start awe-client, make sure the fields in awe_client.cfg.tt have been configured with proper values by modifying Makefile.)<br />
 
