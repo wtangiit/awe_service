@@ -39,9 +39,16 @@ source user-env.sh<br />
 make<br />
 make deploy<br />
 
-- Start AWE:<br />
-/kb/deployment/services/awe_service/start_service
+- Start/Stop AWE Server:<br />
+/kb/deployment/services/awe_service/start_service <br />
+/kb/deployment/services/awe_service/stop_service <br />
 
 - After deployment has completed, if you've associated an IP with your instance you should be able to confirm that AWE is running by going to either url below (ports are defined in Makefile prior to deployment):<br />
 site ->  http://[AWE Server IP]:7079/<br />
 api  ->  http://[AWE Server IP]:7080/<br />
+
+- Start AWE Client:<br />
+/kb/deployment/services/awe_service/start_aweclient <br />
+/kb/deployment/services/awe_service/start_aweclient <br />
+(note: before start awe-client, make sure awec.cfg has been configured with proper attributes such as the awe-server url and supported apps.)<br />
+
