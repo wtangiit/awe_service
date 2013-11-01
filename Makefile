@@ -6,7 +6,7 @@ SERVICE_DIR = $(TARGET)/services/$(SERVICE)
 
 GO_TMP_DIR = /tmp/go_build.tmp
 
-PRODUCTION = 0 
+PRODUCTION = 1 
 
 ifeq ($(PRODUCTION), 1)
 	AWE_DIR = /disk0/awe
@@ -22,10 +22,10 @@ ifeq ($(PRODUCTION), 1)
 	--define mongo_host=localhost \
 	--define mongo_db=AWEDB \
 	--define work_dir=$(AWE_DIR)/work \
-        --define server_url=http://140.221.84.148:8000 \
-        --define client_group=kbaseV26.1 \
-        --define client_name=kbaseV26.1_client \
-        --define supported_apps=awe_qc.pl,awe_annotate.pl,awe_bowtie_screen.pl,awe_cluster_parallel.pl,awe_dereplicate.pl,awe_genecalling.pl,awe_preprocess.pl,awe_rna_blat.sh,awe_rna_search.pl,awe_blat.py
+	--define server_url=http://140.221.84.148:8000 \
+	--define client_group=kbase \
+	--define client_name=kbase-client \
+	--define supported_apps=awe_qc.pl,awe_annotate.pl,awe_bowtie_screen.pl,awe_cluster_parallel.pl,awe_dereplicate.pl,awe_genecalling.pl,awe_preprocess.pl,awe_rna_blat.sh,awe_rna_search.pl,awe_blat.py
 else
 	AWE_DIR = /mnt/awe
 	TPAGE_ARGS = --define kb_top=$(TARGET) \
@@ -40,10 +40,10 @@ else
 	--define mongo_host=localhost \
 	--define mongo_db=AWEDB \
 	--define work_dir=$(AWE_DIR)/work \
-        --define server_url=http://140.221.84.148:8000 \
-        --define client_group=kbaseV26.1 \
-        --define client_name=kbaseV26.1_client \
-        --define supported_apps=awe_qc.pl,awe_annotate.pl,awe_bowtie_screen.pl,awe_cluster_parallel.pl,awe_dereplicate.pl,awe_genecalling.pl,awe_preprocess.pl,awe_rna_blat.sh,awe_rna_search.pl,awe_blat.py
+	--define server_url=http://140.221.84.148:8000 \
+	--define client_group=kbase \
+	--define client_name=kbase-client \
+	--define supported_apps=awe_qc.pl,awe_annotate.pl,awe_bowtie_screen.pl,awe_cluster_parallel.pl,awe_dereplicate.pl,awe_genecalling.pl,awe_preprocess.pl,awe_rna_blat.sh,awe_rna_search.pl,awe_blat.py
 endif
 
 include $(TOP_DIR)/tools/Makefile.common
