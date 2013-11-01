@@ -1,0 +1,6 @@
+#!/bin/bash
+
+source /kb/deployment/user-env.sh
+
+echo "/usr/sbin/service awe-client start"
+/usr/sbin/service awe-client start

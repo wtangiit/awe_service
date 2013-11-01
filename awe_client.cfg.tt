@@ -1,0 +1,15 @@
+[Directories]
+data=[% data_dir %]
+logs=[% logs_dir %]
+
+[Client]
+workpath=[% work_dir %]
+supported_apps=[% supported_apps %]
+serverurl=[% server_url %]
+group=[% client_group %]
+name=[% client_name %]
+auto_clean_dir=true
+worker_overlap=false
+print_app_msg=false
+username=
+password=
