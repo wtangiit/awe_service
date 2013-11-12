@@ -69,6 +69,7 @@ deploy-service: all
 	$(TPAGE) $(TPAGE_ARGS) awe_server.cfg.tt > awe.cfg
 	$(TPAGE) $(TPAGE_ARGS) AWE/site/js/config.js.tt > AWE/site/js/config.js
 	mkdir -p $(AWE_DIR)/site $(AWE_DIR)/data $(AWE_DIR)/logs $(AWE_DIR)/awfs
+	chmod 777  $(AWE_DIR)/site $(AWE_DIR)/data $(AWE_DIR)/logs $(AWE_DIR)/awfs
 	rm -r $(AWE_DIR)/site
 	cp -v -r AWE/site $(AWE_DIR)/site
 	mkdir -p $(BIN_DIR) $(SERVICE_DIR) $(SERVICE_DIR)/conf $(SERVICE_DIR)/logs/awe $(SERVICE_DIR)/data/temp
