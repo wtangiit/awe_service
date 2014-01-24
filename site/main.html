@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>AWE - Home</title>
+    <link rel="icon" href="images/awe-lg.png" type="image/x-icon">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <style>
+	  .tab-pane {
+	  padding:10px;
+	  }
+
+	  .mainview {
+	  margin-top: 20px;
+	  margin-bottom: 100px;
+	  margin-left: 50px;
+	  margin-right: 50px;
+	  position: absolute;
+	  width: 800px;
+	  left: 300px;
+	  }
+
+	  .sidebar {
+	  position: absolute;
+	  left: 20px;
+	  width: 280px;
+	  top: 120px;
+	  }
+    </style>
+  </head>
+
+  <body style="margin-top: 60px; margin-bottom: 100px;">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+	    <div class="container" style="width: 100%; padding-left: 10px;">
+          <img src="images/awe-lg.png" style="float: left; margin-left: -10px; height: 55px;">
+    	  <a class="brand" href="#" style="color: white; cursor: default; margin-top: 8px; margin-left: 30px;">Home</a>
+	  <div class="nav-collapse collapse" style="float: left; margin-top: 8px;">
+	    <ul class="nav">
+	      <li class="">
+		<a href="main.html">Home</a>
+	      </li>
+	      <li class="">
+		<a href="awemonitor.html">Status Monitor</a>
+	      </li>
+	      <li class="">
+		<a href="awesubmission.html">Job Submission</a>
+	      </li>
+	      <li class="">
+		<a href="aweworkflow.html">Workflow Editor</a>
+	      </li>
+	    </ul>
+	  </div>
+	  <span id='login_space'></span>
+	    </div>
+      </div>
+    </div>
+
+    <div class="mainview">
+
+      <h2>Welcome to AWE!</h2>
+
+      <hr>
+
+      <p>AWE is a workflow engine that manages and executes scientific computing workflows or pipelines.</p>
+
+      <p>AWE is designed as a distributed system that contains a centralized server and multiple distributed clients. The server receives job submissions and parses jobs into tasks, splits tasks into workunits, and manages workunits in a queue. The AWE clients, running on distributed, heterogeneous computing resources, keep checking out workunits from the server queue and dispatching the workunits on the local computing resources.</p>
+
+      <p>AWE uses the Shock data management system to handle input and output data (retrieval, storage, splitting, and merge). AWE uses a RESTful API for communication between AWE components and with outside components such as Shock, the job submitter, and the status monitor.</p>
+
+    </div>
+    
+  </body>
+</html>

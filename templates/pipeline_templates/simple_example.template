@@ -1,0 +1,88 @@
+    {
+        "info": {
+            "pipeline": "awe-example",
+            "name": "#jobname",
+            "project": "#project",
+            "user": "#user",
+            "clientgroups":"#clientgroups"
+        }, 
+        "tasks": [
+            {
+                "cmd": {
+                    "args": "-input=@#inputfile -output=#jobname.prep.fna", 
+                    "description": "preprocess", 
+                    "name": "awe_preprocess.pl"
+                }, 
+                "dependsOn": [], 
+                "inputs": {
+                   "#inputfile": {
+                        "host": "http://#shockurl",
+                        "node": "#shocknode"
+                    }
+                }, 
+                "outputs": {
+                    "#jobname.prep.fna": {
+                        "host": "http://#shockurl"
+                    }
+                },
+                "partinfo": {
+                     "input": "#inputfile",
+                     "output": "#jobname.prep.fna"
+                },
+                "taskid": "0",
+                "skip": 0,
+                "totalwork": 1                
+            },
+            {
+                "cmd": {
+                    "args": "-input=@#jobname.prep.fna -output=#jobname.derep.fna", 
+                    "description": "dereplication", 
+                    "name": "awe_dereplicate.pl"
+                }, 
+                "dependsOn": ["0"], 
+                "inputs": {
+                   "#jobname.prep.fna": {
+                        "host": "http://#shockurl",
+                        "origin": "0"
+                    }
+                }, 
+                "outputs": {
+                    "#jobname.derep.fna": {
+                        "host": "http://#shockurl"
+                    }
+                },
+                "taskid": "1",
+                "skip": 0, 
+                "totalwork": 1
+            },
+            {
+                "cmd": {
+                    "args": "-input=@#jobname.derep.fna -out_prefix=#jobname.genecalled", 
+                    "description": "gene calling", 
+                    "name": "awe_genecalling.pl"
+                }, 
+                "dependsOn": ["1"], 
+                "inputs": {
+                   "#jobname.derep.fna": {
+                        "host": "http://#shockurl",
+                        "origin": "1"
+                    }
+                }, 
+                "outputs": {
+                    "#jobname.genecalled.faa": {
+                        "host": "http://#shockurl"
+                    },
+                    "#jobname.genecalled.fna": {
+                        "host": "http://#shockurl"
+                    }
+                },
+                "partinfo": {
+                     "input": "#jobname.derep.fna"
+                },
+                "taskid": "2",
+                "skip": 0,
+                "totalwork": #totalwork,
+                "maxworksize": 5 
+            }
+        ]
+    }
